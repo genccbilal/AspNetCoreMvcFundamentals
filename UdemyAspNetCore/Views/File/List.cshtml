@@ -1,0 +1,43 @@
+﻿@model FileInfo[]
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<a asp-action="Create" class="btn btn-secondary mb-2">Create</a>
+
+<div class="row">
+    <div class="col-4">
+        @await Component.InvokeAsync("News", new { @color = "blue" })
+    </div>
+
+    <div class="col-7 ">
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Creation  Time</th>
+                    <th>Name</th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Name</td>
+                        <td>@item.CreationTime</td>
+                        <td>@item.FullName</td>
+                        <td>
+                            <a asp-action="Remove" asp-route-fileName="@item.Name" class="btn btn-danger">Remove</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+
+</div>
+
+

@@ -1,0 +1,28 @@
+﻿
+@model Customer
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<h3>Update Customer</h3>
+<form asp-controller="Home" asp-action="Update" method="post">
+    <input type="hidden" name="id" value="@Model.Id" />
+    <div class="form-group">
+        <label>Frist Name: </label>
+        <input asp-for="@Model.FirstName" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Last Name: </label>
+        <input asp-for="@Model.LastName" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Age :</label>
+        <input asp-for="@Model.Age" class="form-control" />
+    </div>
+    <div class="form-group ">
+        <button class="btn btn-primary mt-3" type="submit">Save</button>
+    </div>
+</form>
